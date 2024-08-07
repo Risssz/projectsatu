@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faris Motogaage</title>
+    <link rel="icon" href="logo2.PNG">
+</head>
+<body topmargin="0" leftmargin="0" rightmargin="0" bgcolor="2C3639" bottommargin="0">
+    <table border="0" width="100%" height="85" bgcolor="gray">
+        <tr>
+            <td align="left" width="610"></td>
+            <td align="left" width="100"><img width="100" height="100" src="logo2.PNG" alt=""></td>
+            <td align="left"><font face="verdana" size="5" color="#E41B17" >Motogarage</font></td>
+        </tr>
+    </table>
+
+    <table border="0" width="100%" height="10" align="center" cellspacing="10" cellpadding="0" bgcolor="#E1D9D1">
+  <tr>
+    <td>
+      <center>
+        <ul>
+            <a href="index.html" target="tengah"><font face="verdana">Home</font></a>
+            <font>|</font>
+            <a href="produk.html" target="tengah"><font face="verdana">Product</font></a>
+            <font>|</font>
+            <a href="about.html" target="tengah"><font face="verdana">About</font></a>
+            <font>|</font>
+            <a href="kontak.html" target="tengah"><font face="verdana">Contact</font></a>
+        </ul>
+      </center>
+    </td>
+  </tr>
+</table>
+</table>
+
+<br>
+<br>
+
+<font face="verdana" size="5" ><center> Pesanan Anda Sedang Di Proses.. </center></font>
+
+<style>
+body {
+    background-color: #2C3639;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+.invoice-container {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    font-family: "verdana", sans-serif;
+}
+
+.custom-heading1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.custom-heading2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.total-harga {
+    text-align: right;
+    font-size: 18px;
+}
+</style>
+</head>
+<body>
+<div class="main-content">
+<div class="invoice-container">
+    <h1 class="custom-heading1">Detail Transaksi</h1>
+    <hr>
+    <table class="custom-table">
+        <tr>
+            <th>Nama :</th>
+            <td><span id="nama"></span></td>
+        </tr>
+        <tr>
+            <th>Alamat :</th>
+            <td><span id="alamat"></span></td>
+        </tr>
+        <tr>
+            <th>Konfirmasi Barang :</th>
+            <td><span id="konfirmasiBarang"></span></td>
+        </tr>
+        <tr>
+            <th>Jumlah Pesanan :</th>
+            <td><span id="jumlahPesanan"></span></td>
+        </tr>
+        <tr>
+            <th>Pengiriman :</th>
+            <td><span id="pengiriman"></span></td>
+        </tr>
+        <tr>
+            <th>Catatan :</th>
+            <td><span id="catatan"></span></td>
+        </tr>
+    </table>
+
+    <div class="total-harga">
+        <strong>Total Harga :</strong> <span id="totalHarga"></span>
+    </div>
+</div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ambil data transaksi dari LocalStorage
+        const dataTransaksi = localStorage.getItem('transactionData');
+
+        // Jika data transaksi tersedia, tampilkan struk
+        if (dataTransaksi) {
+            const transaksi = JSON.parse(dataTransaksi);
+
+            // Isi data transaksi ke elemen-elemen di halaman invoice.html
+            document.getElementById("nama").innerText = transaksi.nama;
+            document.getElementById("alamat").innerText = transaksi.alamat;
+            document.getElementById("konfirmasiBarang").innerText = transaksi.konfirmasiBarang;
+            document.getElementById("jumlahPesanan").innerText = transaksi.jumlahPesanan;
+            document.getElementById("totalHarga").innerText = transaksi.totalHarga;
+            document.getElementById("pengiriman").innerText = transaksi.pengiriman;
+            document.getElementById("catatan").innerText = transaksi.catatan;
+
+            // Hapus data transaksi dari LocalStorage setelah ditampilkan
+            localStorage.removeItem('transactionData');
+        } else {
+            // Jika data transaksi tidak ditemukan, berikan pesan atau tindakan sesuai kebutuhan
+            console.log("Data transaksi tidak ditemukan.");
+        }
+    });
+</script>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  
+    <br>
+    <table  border="0" width="100%" height ="30" align ="center" bgcolor="3F4E4F" >
+        <tr>
+            <td>
+                <p align="center">©2024 Faris Motogarage | All Rights Reserved.</p>
+            </td>
+            
+        </tr>
+        
+    </table>
+
+ </body>
+    
+
+    
+</html>
